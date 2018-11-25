@@ -1,7 +1,7 @@
 import pandas as pd
 
-dataset = pd.read_csv('./train.csv')
-dadosTeste = pd.read_csv("./test.csv")
+dataset = pd.read_csv('../input/train.csv')
+dadosTeste = pd.read_csv("../input/test.csv")
 
 dataset.drop(["diferenciais"], axis=1)
 dadosTeste.drop(["diferenciais"], axis=1)
@@ -166,11 +166,11 @@ print('R2   = %.3f' %                     r2_score(y_test , y_pred_test) )
 
 Yteste = regressor.predict(Xteste)
 
-idDados = pd.read_csv("./test.csv", header = 0)
+idDados = pd.read_csv("../input/test.csv", header = 0)
 predicao = pd.DataFrame(Yteste, columns=['preco'])
 idDados = idDados[['Id']]
 resposta = pd.concat([idDados, predicao], axis=1)
-resposta.to_csv("resposta.csv", index=False)
+resposta.to_csv("../output/resposta.csv", index=False)
 
 """ import numpy as np
 
